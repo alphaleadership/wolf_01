@@ -1,3 +1,3 @@
 #!/bin/sh
-echo "The application is starting : "
-exec ./wolf -t 500 -g 'https://ir-press.ru'
+echo "Wolf application starting..."
+exec python3 wolf.py

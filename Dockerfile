@@ -1,4 +1,4 @@
-FROM golang:1.23.2-alpine3.20
+FROM python:3.12.7-alpine3.20
 
 ENV status=dev
 
@@ -9,8 +9,7 @@ ADD entrypoint.sh entrypoint.sh
 RUN chmod 755 entrypoint.sh && chown wolf:wolf entrypoint.sh
 USER wolf
 
-ADD wolf.go /home/wolf/wolf.go
+ADD wolf.py /home/wolf/wolf.py
 
-RUN go build wolf.go
-
+RUN pip install requests
 ENTRYPOINT ["./entrypoint.sh"]
