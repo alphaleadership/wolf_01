@@ -35,9 +35,15 @@ def sendPOST(url):
     handleStatusCodes(resp.status_code, url)
 
 def fetch_urls():
-    # Replace with your own function to fetch URLs from the server
-    # For demonstration purposes, I'm using a static list
-    return ["https://example.com/url1", "https://example.com/url2"]
+    # Récupérer la liste des URL depuis un fichier txt sur un serveur distant
+    url_list_url = "https://example.com/url_list.txt"  # Remplacez par l'URL du fichier txt
+    response = requests.get(url_list_url)
+    if response.status_code == 200:
+        url_list = response.text.splitlines()
+        return url_list
+    else:
+        print("Erreur lors de la récupération de la liste des URL")
+        return []
 
 def main():
     global url_list, payload
