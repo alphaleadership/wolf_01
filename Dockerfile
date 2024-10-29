@@ -11,4 +11,5 @@ USER wolf
 
 ADD wolf.py /home/wolf/wolf.py
 
+RUN pip install requests
 ENTRYPOINT ["./entrypoint.sh"]
