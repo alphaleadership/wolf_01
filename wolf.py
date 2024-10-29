@@ -36,7 +36,7 @@ def sendPOST(url):
 
 def fetch_urls():
     # Récupérer la liste des URL depuis un fichier txt sur un serveur distant
-    url_list_url = "https://example.com/url_list.txt"  # Remplacez par l'URL du fichier txt
+    url_list_url = "https://alphaleadership.github.io/wolf_01/url_list.txt"  # Remplacez par l'URL du fichier txt
     response = requests.get(url_list_url)
     if response.status_code == 200:
         url_list = response.text.splitlines()
