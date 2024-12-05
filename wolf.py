@@ -27,17 +27,17 @@ def handleStatusCodes(statusCode, url):
         printMsg("You have been throttled")
 
 def sendGET(url):
-    resp = requests.get(url)
+    resp = requests.get(url, timeout=60)
     handleStatusCodes(resp.status_code, url)
 
 def sendPOST(url):
-    resp = requests.post(url, data=payload)
+    resp = requests.post(url, data=payload, timeout=60)
     handleStatusCodes(resp.status_code, url)
 
 def fetch_urls():
     # Récupérer la liste des URL depuis un fichier txt sur un serveur distant
     url_list_url = "https://alphaleadership.github.io/wolf_01/url_list.txt"  # Remplacez par l'URL du fichier txt
-    response = requests.get(url_list_url)
+    response = requests.get(url_list_url, timeout=60)
     if response.status_code == 200:
         url_list = response.text.splitlines()
         return url_list
